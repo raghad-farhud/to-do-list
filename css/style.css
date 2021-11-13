@@ -1,0 +1,295 @@
+:root{
+    --mainColor:rgb(0, 200, 200);
+    --sideheadColor:rgb(238, 0, 238);
+    --strangeColor:rgb(255, 145, 0);
+    --midleColor: #dbdbdb;
+    --blackNwhite: white;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* transition: 0.2; */
+}
+html {
+    scroll-behavior: smooth;
+}
+button {
+    cursor: pointer;
+}
+.container {
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e7e7e7;
+    padding-bottom: 40px;
+}
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 730px;
+    }
+}
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global Ruls  */
+/* Start Components  */
+.darkTheme{
+    background-color:black;
+    color: white;
+}
+/* End Components  */
+
+body {
+    font-family: "Open Sans", sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+    text-transform: capitalize;
+    background-color: white;
+}
+.headContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--mainColor);
+    color: white;
+}
+.headContainer h1{
+    background-color: var(--mainColor);
+    color: white;
+    margin: 15px 0px;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    text-shadow: 3px 3px #ee00ee;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.headContainer h1:hover {
+    text-shadow: 5px 5px #ee00ee;
+}
+.headContainer p{
+    margin-bottom: 13px;
+    position: relative;
+    right: -4em;
+    color: rgb(238 0 238);
+    font-weight: bold;
+    text-shadow: 0 0 4px white;
+}
+.headContainer .theme{
+    padding: 20px;
+    margin: 1em 0 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    background-color: var(--sideheadColor);
+}
+.headContainer .theme h2 {
+    font-size: 22px;
+    text-shadow: 1px 2px 2px #5c0f5c;
+}
+.headContainer .theme .themeBox{
+    display: flex;
+    background-color: var(--mainColor);
+    justify-content: space-around;
+}
+.headContainer .theme .themeBox .btn{
+    padding: 9px;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 0.5px solid rgb(255 255 255);
+    user-select: none;
+}
+.headContainer .theme .themeBox .btn:hover{
+    background-color: #02a1a1 ;
+    /* background-color: rgb(255 255 255);
+    color: var(--mainColor); */
+}
+.headContainer .theme .themeBox .btn.active-theme{
+    background-color: #02a1a1;
+    /* color: var(--mainColor) !important; */
+}
+
+.date{
+    margin-top: 24px;
+    text-align: center;
+    color: #7a7a7a;
+    letter-spacing: 2px;
+}
+
+.taskContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0 0;
+    position: relative;
+}
+.taskContainer input#task-name{
+    background-color: var(--mainColor);
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    margin: 0px 0 16px;
+    font-size: 26px;
+}
+.taskContainer input#task-name:focus{
+    outline: none;
+}
+.taskContainer input#task-name::placeholder{
+    color: white;
+    opacity: 0.5;
+    font-weight: 100;
+}
+.taskContainer .add{
+    position: absolute;
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: var(--sideheadColor);
+    right: 3px;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.3s;
+    transform-origin: center center;
+    user-select: none;
+}
+.taskContainer .add:hover{
+    transform:rotate(90deg);
+}
+.taskContainer .task-placs{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 0 10px;
+}
+.taskContainer .task-placs .noTaskMsg{
+    color: #787878;
+    margin: 10px 0;
+    padding: 10px 0 10px 29px;
+    font-size: 20px;
+    cursor: not-allowed;
+    user-select: none;
+}
+.taskContainer .task-placs>span{
+    margin: 10px 0;
+    width: 49%;
+    background-color: var(--blackNwhite);
+    padding: 10px 0 10px 35px;
+    font-size: 20px;
+    color: var(--mainColor);
+    position: relative;
+    cursor: pointer;
+}
+.taskContainer .task-placs>span::before{
+    content: '✔';
+    position: absolute;
+    /* width: 17px; */
+    /* height: 15px; */
+    /* border: 1px solid var(--sideheadColor); */
+    left: 6px;
+    top: 50%;
+    /* border-radius: 50%; */
+    transform: translateY(-50%);
+    transition: 0.2s;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #ff0000;
+    font-weight: 900;
+    font-size: 25px;
+}
+.taskContainer .task-placs>span:focus{
+    outline: none;
+}
+.taskContainer .task-placs>span:hover:before{
+    font-size: 30px;
+    /* background-color: var(--sideheadColor); */
+}
+.taskContainer .task-placs>span .delete{
+    position: absolute;
+    right: 6px;
+    font-size: 12px;
+    padding: 5px 6px;
+    background-color: var(--sideheadColor);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.taskContainer .task-placs>span.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+    cursor: pointer;
+}
+/* .taskContainer .task-placs>span.completed::before{
+background-color: var(--sideheadColor);
+} */
+
+@media (max-width: 900px) {
+    .taskContainer .task-placs{
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 10px;
+    }
+    .taskContainer .task-placs>span{
+        width: 100%;
+    }
+}
+
+.task-cal{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin: 15px 0;
+    font-size: 14px;
+    color: #7c7c7c;
+}
+.task-cal div span{
+    background-color: var(--strangeColor);
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: white;
+}
+.task-cal div.delete-all span{
+    cursor: pointer;
+}
+.task-cal div span.delete-all{
+    cursor: pointer;
+    background-color: var(--sideheadColor);
+}
+
+.footer.container{
+    background-color: var(--sideheadColor) !important;
+    padding: 15px 0;
+    text-align: center !important;
+    color: white;
+}
+.footer a{
+    color: var(--mainColor);
+    font-weight: bold;
+    text-shadow: 2px 1px 3px #4c034c;
+    text-decoration: none;
+}
+.footer a:hover{
+    color: var(--strangeColor);
+}

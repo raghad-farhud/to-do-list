@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="icon" href="imgs/photo_2021-11-05_13-16-22.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- <script src="scripts/db.js" defer></script> -->
+</head>
+<body>
+    <div class="container">
+        <div class="headContainer">
+            <h1>to do list <span class="emoji">📌</span></h1>
+            <p>for your daily tasks <span class="emoji">😚</span></p>
+            <div class="theme">
+                <h2>choose your theme <span class="emoji">🤩</span></h2>
+                <div class="themeBox">
+                    <div class="btn">Dark</div>
+                    <div class="btn">Light</div>
+                </div>
+            </div>
+        </div>
+        <div class="date"></div>
+        <div class="taskContainer">
+            <input type="text" name="task" id="task-name" placeholder="today's task">
+            <span class="add">+</span>
+            <div class="task-placs">
+                <div class="noTaskMsg">No Tasks To Show</div>
+            </div>
+            <div class="task-cal">
+                <div class="task-count">all tasks <span>0</span></div>
+                <div class="task-completed">completed <span>0</span></div>
+                <div><span class="delete-all" >delete-all</span></div>
+                <!-- <div class="delete-all"><span>Delete All</span></div> -->
+            </div>
+        </div>
+    </div>
+    <footer class="container footer">made with ❤ by <a href="https://www.instagram.com/rf.dev0/" title="go to instagram" target="_blanck">rf.dev</a></footer>
+<script src="scripts/Main.js"></script>
+<script>
+    var date = document.querySelector('.date');
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    var today = dd + '/' + mm + '/' + yyyy;
+    date.innerHTML = today;
+</script>
+</body>
+</html>
